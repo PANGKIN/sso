@@ -1,0 +1,6 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "public/"],
+
+  "ext": "js,json,ts"
+}

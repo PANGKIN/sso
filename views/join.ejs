@@ -1,0 +1,29 @@
+<form method="post" name="joinform">
+  <input class="input" name="id" placeholder="아이디" autoComplete="username" />
+  <div class="formmessage" id="formmessage-id"></div>
+  <input
+    class="input"
+    name="password"
+    placeholder="비밀번호"
+    autoComplete="current-password"
+    type="password"
+    id="password"
+  />
+  <div class="formmessage" id="formmessage-password"></div>
+  <input
+    class="input"
+    name="passwordCheck"
+    placeholder="비밀번호 확인"
+    autoComplete="new-password"
+    type="password"
+  />
+  <div class="formmessage" id="formmessage-passwordCheck"></div>
+  <input class="input" name="nickname" placeholder="닉네임" />
+  <div class="formmessage" id="formmessage-nickname"></div>
+  <input class="input" name="email" placeholder="이메일" />
+  <div class="formmessage" id="formmessage-email"></div>
+  <div class="message"><%= message ? message : '' %></div>
+  <button class="loginButton" type="button" id="submitButton">회원가입</button>
+</form>
+<%- contentFor('script') %>
+<script src="/javascripts/validateForm.js"></script>

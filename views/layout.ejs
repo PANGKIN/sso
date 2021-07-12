@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      @charset "UTF-8";
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+          Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+      }
+
+      .block {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background: #e9ecef;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.025);
+        padding: 2rem;
+        width: 360px;
+        background: white;
+        border-radius: 8px;
+      }
+
+      .logo-area {
+        text-decoration: none;
+        color: black;
+        display: block;
+        padding-bottom: 1rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      h3 {
+        margin: 0;
+        color: #343a40;
+        margin-bottom: 1rem;
+      }
+
+      .input {
+        font-size: 1rem;
+        border: none;
+        border-bottom: 1px solid #adb5bd;
+        padding-bottom: 0.5rem;
+        outline: none;
+        width: 100%;
+      }
+
+      .input:focus {
+        color: #0ca678;
+        border-bottom: 1px solid #495057;
+      }
+
+      .input + .input {
+        margin-top: 1rem;
+      }
+
+      .footer {
+        margin-top: 2rem;
+        text-align: right;
+      }
+
+      .link {
+        color: #868e96;
+        text-decoration: underline;
+      }
+
+      .link:hover {
+        color: #212529;
+      }
+
+      .error {
+        color: red;
+        text-align: center;
+        font-size: 0.875rem;
+        height: 1.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .loginButton {
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        padding: 0.25rem 1rem;
+        color: white;
+        outline: none;
+        cursor: pointer;
+        background: #22b8cf;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        width: 100%;
+        font-size: 1.125rem;
+      }
+
+      .loginButton:hover {
+        background: #3bc9db;
+      }
+
+      .buttonArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .button {
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        padding: 0.25rem 1rem;
+        color: white;
+        outline: none;
+        cursor: pointer;
+        background: #22b8cf;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 20%;
+        font-size: 1.125rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      .button:hover {
+        background: #3bc9db;
+      }
+
+      .message {
+        color: red;
+        text-align: center;
+        font-size: 0.875rem;
+        height: 1.5rem;
+        margin: 0.5rem 0 0.25rem 0;
+      }
+
+      .formmessage {
+        color: red;
+        text-align: center;
+        font-size: 0.875rem;
+        margin: 0.5rem 0 0.25rem 0;
+      }
+
+      .grant-debug {
+        text-align: center;
+        font-family: Fixed, monospace;
+        width: 100%;
+        font-size: 12px;
+        color: #999;
+      }
+
+      .grant-debug div {
+        padding-top: 10px;
+      }
+
+      .login-help {
+        color: #666;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .login-help + form {
+        margin-top: 10px;
+      }
+      .username {
+        font-weight: bold;
+      }
+      ul {
+        font-weight: 100;
+        padding-left: 1em;
+        list-style-type: circle;
+      }
+
+      li + ul,
+      ul + li,
+      li + li {
+        padding-top: 0.3em;
+      }
+    </style>
+    <title>Pangkin SSO</title>
+    <script src="/javascripts/deleteMessage.js"></script>
+    <%-defineContent('script')%>
+  </head>
+  <body class="text-center">
+    <div class="block">
+      <div class="box">
+        <a class="logo-area" href="/">PANGKIN SSO</a>
+        <div>
+          <h3><%= title %></h3>
+          <%- body %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

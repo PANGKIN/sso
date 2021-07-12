@@ -1,0 +1,13 @@
+<p><span class="username"><%= nickname%></span> 님!</p>
+<p><b><%= clientName %></b> 에서 로그인을 요청했습니다.</p>
+<p>요청을 승인하시겠습니까?</p>
+
+<form autocomplete="off" action="/oauth2/authorize/decision" method="post">
+  <% if(transactionId) { %>
+  <input name="transaction_id" type="hidden" value="<%= transactionId %>" />
+  <% } %>
+  <div class="buttonArea">
+    <button class="button" type="submit">승인</button>
+    <input type="submit" value="거부" name="cancel" id="deny" class="button" />
+  </div>
+</form>

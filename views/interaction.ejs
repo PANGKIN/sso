@@ -1,0 +1,48 @@
+<p><span class="username"><%= nickname %></span> 님!</p>
+<p><b><%= clientName %></b> 에서 로그인을 요청했습니다.</p>
+<p>요청을 승인하시겠습니까?</p>
+<ul>
+  <% if ([details.missingOIDCScope, details.missingOIDCClaims,
+  details.missingResourceScopes].filter(Boolean).length === 0) { %>
+  <li>추가 권한이 없습니다.</li>
+  <% } %> <% let missingOIDCScope = new Set(details.missingOIDCScope);
+  missingOIDCScope.delete('openid'); missingOIDCScope.delete('offline_access')
+  %> <% if (missingOIDCScope.size) { %>
+  <li>제공되는 권한:</li>
+  <ul>
+    <% missingOIDCScope.forEach((scope) => { %>
+    <li><%= translationScope[scope] || scope %></li>
+    <% }) %>
+  </ul>
+  <% } %> <% let missingOIDCClaims = new Set(details.missingOIDCClaims); ['sub',
+  'sid', 'auth_time', 'acr', 'amr',
+  'iss'].forEach(Set.prototype.delete.bind(missingOIDCClaims)) %> <% if
+  (missingOIDCClaims.size) { %>
+  <li>제공되는 정보:</li>
+  <ul>
+    <% missingOIDCClaims.forEach((claim) => { %>
+    <li><%= claim %></li>
+    <% }) %>
+  </ul>
+  <% } %> <% let missingResourceScopes = details.missingResourceScopes %> <% if
+  (missingResourceScopes) { %> <% for (const [indicator, scopes] of
+  Object.entries(details.missingResourceScopes)) { %>
+  <li><%= indicator %>:</li>
+  <ul>
+    <% scopes.forEach((scope) => { %>
+    <li><%= scope %></li>
+    <% }) %>
+  </ul>
+  <% } %> <% } %>
+</ul>
+
+<form
+  autocomplete="off"
+  action="/oidc/interaction/<%= uid %>/confirm"
+  method="post"
+>
+  <div class="buttonArea">
+    <button class="button" type="submit">승인</button>
+    <input type="submit" value="거부" name="cancel" id="deny" class="button" />
+  </div>
+</form>

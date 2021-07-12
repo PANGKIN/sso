@@ -1,0 +1,21 @@
+<form method="post" action="<%= accionUrl %>">
+  <input
+    class="input"
+    autoComplete="username"
+    name="id"
+    placeholder="아이디"
+    type="text"
+  />
+  <input
+    class="input"
+    autoComplete="current-password"
+    name="password"
+    placeholder="비밀번호"
+    type="password"
+  />
+  <div class="message"><%= message ? message : '' %></div>
+  <button class="loginButton" type="submit">로그인</button>
+</form>
+<div class="footer">
+  <a href="/join?redirectTo=<%= redirectTo %>" class="link">회원가입</a>
+</div>
