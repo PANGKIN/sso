@@ -2,7 +2,6 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
-import sassMiddleware from 'node-sass-middleware';
 import helmet from 'helmet';
 import { Provider } from 'oidc-provider';
 import expressEjsLayouts from 'express-ejs-layouts';
@@ -26,6 +25,7 @@ const {
 } = process.env;
 
 if (!EXPRESS_SESSTION_KEY || !MONGO_SESSION_KEY) {
+  console.log('key not found');
   process.exit(1);
 }
 
@@ -69,14 +69,6 @@ app.use(logger('dev'));
 app.use(express.json());
 //app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(
-  sassMiddleware({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: true, // true = .sass and false = .scss
-    sourceMap: true,
-  })
-);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(

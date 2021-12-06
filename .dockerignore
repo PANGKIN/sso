@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+.git
+out
+build
+dist
+.env
+keys/private_key.pem
+keys/public_key.pem
